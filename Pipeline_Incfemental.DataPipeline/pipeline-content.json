@@ -1,0 +1,53 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "ForEach1",
+        "type": "ForEach",
+        "dependsOn": [],
+        "typeProperties": {
+          "items": {
+            "value": "@variables('arra')",
+            "type": "Expression"
+          },
+          "batchCount": 1,
+          "activities": [
+            {
+              "name": "Set variable1",
+              "type": "SetVariable",
+              "dependsOn": [],
+              "policy": {
+                "secureOutput": false,
+                "secureInput": false
+              },
+              "typeProperties": {
+                "variableName": "varint",
+                "value": {
+                  "value": "@item()",
+                  "type": "Expression"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "variables": {
+      "arra": {
+        "type": "Array",
+        "defaultValue": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "varint": {
+        "type": "Integer"
+      }
+    }
+  }
+}
